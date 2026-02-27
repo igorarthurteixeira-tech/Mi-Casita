@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+/* =========================================
+   SCROLL SUAVE
+========================================= */
+html {
+  scroll-behavior: smooth;
+}
+
+/* =========================================
+   VARIÁVEIS BASE
+========================================= */
+:root {
+  /* Fundo principal */
+  --background: #F5F3EF;
+
+  /* Paleta Mi Casita */
+  --marmore: #F5F3EF;
+  --madeira: #D8C3A5;
+  --dourado: #B89B5E;
+  --oliva: #6E7F5A;
+
+  /* Texto */
+  --foreground: #2E2A25;
+}
+
+/* =========================================
+   INTEGRAÇÃO COM TAILWIND V4
+========================================= */
+@theme inline {
+  --color-marmore: var(--marmore);
+  --color-madeira: var(--madeira);
+  --color-dourado: var(--dourado);
+  --color-oliva: var(--oliva);
+}
+
+/* =========================================
+   BASE DO DOCUMENTO
+========================================= */
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* =========================================
+   TIPOGRAFIA EDITORIAL
+========================================= */
+h1, h2, h3 {
+  font-family: var(--font-serif), serif;
+  letter-spacing: -0.02em;
+}
+
+/* =========================================
+   REFINAMENTO DE LINKS
+========================================= */
+a {
+  text-decoration: none;
+}
+
+/* =========================================
+   TRANSIÇÕES GLOBAIS SUAVES
+========================================= */
+button {
+  transition: all 0.3s ease;
+}
