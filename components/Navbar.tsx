@@ -1,39 +1,43 @@
 "use client";
 
+import Link from "next/link";
+import { useCart } from "@/components/context/CartContext";
+
 export default function Navbar() {
+  const { itens } = useCart();
 
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (!element) return;
+  const quantidadeTotal = itens.reduce(
+    (acc, item) => acc + item.quantidade,
+    0
+  );
 
-    element.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
-  };
+  const total = itens.reduce(
+    (acc, item) => acc + item.preco * item.quantidade,
+    0
+  );
 
   return (
-    <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-y border-neutral-200">
+    <nav className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-neutral-200">
       <div className="max-w-6xl mx-auto px-8 md:px-16 py-5 flex justify-between items-center">
 
-        <span className="font-serif text-lg tracking-wide">
+        {/* LOGO */}
+        <Link href="/" className="font-serif text-lg tracking-wide">
           Mi Casita
-        </span>
+        </Link>
 
-        <div className="flex gap-10 text-sm uppercase tracking-widest text-neutral-600">
-          <button onClick={() => scrollToSection("sabores")} className="hover:text-dourado transition">
+        {/* MENU */}
+        <div className="flex items-center gap-10 text-sm uppercase tracking-widest text-neutral-600 mr-20">
+
+          <Link href="/sabores" className="hover:text-dourado transition">
             Sabores
-          </button>
+          </Link>
 
-          <button onClick={() => scrollToSection("como-funciona")} className="hover:text-dourado transition">
-            Como funciona
-          </button>
-
-          <button onClick={() => scrollToSection("reserva")} className="hover:text-dourado transition">
+          <Link href="/reserva" className="hover:text-dourado transition">
             Reserva
-          </button>
-        </div>
+          </Link>
 
+
+        </div>
       </div>
     </nav>
   );
