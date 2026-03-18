@@ -5,11 +5,11 @@ import Link from "next/link";
 export default function Navbar() {
   return (
     <nav className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-neutral-200">
-      <div className="max-w-6xl mx-auto px-8 md:px-16 py-5 flex justify-between items-center">
+      <div className="max-w-6xl mx-auto px-8 md:px-16 py-5 flex justify-between items-center gap-6">
 
         {/* LOGO */}
-        <Link href="/" className="font-serif text-lg tracking-wide">
-          Projeto Exemplar
+        <Link href="/" className="font-serif text-base md:text-lg tracking-wide leading-tight max-w-xs">
+          Sistema para gelateria boutique
         </Link>
 
         {/* MENU */}
